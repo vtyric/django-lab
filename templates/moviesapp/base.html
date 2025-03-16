@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Мой сайт о фильмах{% endblock %}</title>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Главная</a></li>
+            <li><a href="{% url 'movie_list' %}">Фильмы</a></li>
+            <li><a href="{% url 'actor_list' %}">Актёры</a></li>
+            <li><a href="{% url 'genre_list' %}">Жанры</a></li>
+            <li><a href="{% url 'category_list' %}">Категории</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer>
+    <p>&copy; 2025 Мой сайт о фильмах</p>
+</footer>
+</body>
+</html>

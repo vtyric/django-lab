@@ -1,0 +1,14 @@
+{% extends 'moviesapp/base.html' %}
+
+{% block title %}Категории{% endblock %}
+
+{% block content %}
+    <h1>Список категорий</h1>
+    <ul>
+        {% for category in categories %}
+            <li><strong>{{ category.name }}</strong>: {{ category.description }}</li>
+        {% empty %}
+            <li>Категории отсутствуют</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

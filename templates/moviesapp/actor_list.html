@@ -1,0 +1,17 @@
+{% extends 'moviesapp/base.html' %}
+
+{% block title %}Актёры{% endblock %}
+
+{% block content %}
+    <h1>Список актёров и режиссёров</h1>
+    <ul>
+        {% for actor in actors %}
+            <li>{{ actor.name }} — {{ actor.age }} лет</li>
+            {% if actor.image %}
+                <img src="{{ actor.image.url }}" alt="{{ actor.name }}">
+            {% endif %}
+        {% empty %}
+            <li>Актёры отсутствуют</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

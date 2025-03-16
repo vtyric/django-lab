@@ -1,0 +1,17 @@
+{% extends 'moviesapp/base.html' %}
+
+{% block title %}Фильмы{% endblock %}
+
+{% block content %}
+    <h1>Список фильмов</h1>
+    <ul>
+        {% for movie in movies %}
+            <li>{{ movie.title }} ({{ movie.year }})</li>
+            {% if movie.poster %}
+                <img src="{{ movie.poster.url }}" alt="{{ movie.title }}">
+            {% endif %}
+        {% empty %}
+            <li>Фильмы отсутствуют</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

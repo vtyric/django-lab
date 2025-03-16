@@ -1,0 +1,14 @@
+{% extends 'moviesapp/base.html' %}
+
+{% block title %}Жанры{% endblock %}
+
+{% block content %}
+    <h1>Список жанров</h1>
+    <ul>
+        {% for genre in genres %}
+            <li><strong>{{ genre.name }}</strong>: {{ genre.description }}</li>
+        {% empty %}
+            <li>Жанры отсутствуют</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
