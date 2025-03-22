@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% block title %}Главная{% endblock title %}
+{% block content %}
+    <div class="row">
+        {% for post in post_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="text-muted">Автор: {{ post.author }} | {{ post.created_on|date:"d M Y" }}</p>
+                    <p class="card-text">{{ post.content|truncatechars:200 }}</p>
+                    {% if post.slug %}
+                        <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">Читать далее &rarr;</a>
+                    {% else %}
+                        <a href="#" class="btn btn-secondary disabled">Ссылка недоступна</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% empty %}
+            <p>Пока нет опубликованных записей.</p>
+        {% endfor %}
+    </div>
+{% endblock content %}
